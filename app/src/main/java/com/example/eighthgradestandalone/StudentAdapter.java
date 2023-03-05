@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter {
@@ -20,15 +22,16 @@ public class StudentAdapter extends RecyclerView.Adapter {
 
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
+        public TextView textStdId;
         public TextView textStdFirstName;
         public TextView textStdLastName;
-        public TextView textStdId;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
+            textStdId = itemView.findViewById(R.id.textStdID);
             textStdFirstName = itemView.findViewById(R.id.textStdNameFirst);
             textStdLastName = itemView.findViewById(R.id.textStdNameLast);
-            textStdId = itemView.findViewById(R.id.textStdID);
+
             itemView.setTag(this);
             itemView.setOnClickListener(mOnItemClickListener);
 
@@ -67,8 +70,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
         StudentViewHolder svh = (StudentViewHolder) holder;
         svh.getTextStdFirstName().setText(studentData.get(position).getStdFirstName());
         svh.getTextStdLastName().setText(studentData.get(position).getStdLastName());
-        svh.getTextStdId().setText(studentData.get(position).getStudentID());
-
+        svh.getTextStdId().setText(studentData.get(position).getStdId());
     }
 
     @Override

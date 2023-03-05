@@ -10,8 +10,7 @@ public class StudentActivityDBHelper extends SQLiteOpenHelper {
 
 
     private static final String CREATE_TABLE_STUDENT_ACTIVITY =
-            "create table student (stdidnum interger primary key,"
-            +"stdfirstname text, stdlastname text);";
+           "create table student (_id integer primary Key AUTOINCREMENT, stdidnum text, stdfirstname text, stdlastname text);";
 
 
     public StudentActivityDBHelper(Context context) {

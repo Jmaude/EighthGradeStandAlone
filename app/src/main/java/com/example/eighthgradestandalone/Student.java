@@ -2,22 +2,31 @@ package com.example.eighthgradestandalone;
 
 public class Student {
 
-    private int studentID;
+    private int studentSystemID;
+    private String stdId;
     private String stdFirstName;
     private String stdLastName;
 
     public Student() {
+        studentSystemID = -1;
 
     }
 
-    public int getStudentID() {
-        return studentID;
+    public int getStudentSystemID() {
+        return studentSystemID;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public void setStudentSystemID(int studentSystemID) {
+        this.studentSystemID = studentSystemID;
     }
 
+    public String getStdId() {
+        return stdId;
+    }
+
+    public void setStdId(String stdId) {
+        this.stdId = stdId;
+    }
 
     public String getStdFirstName() {
         return stdFirstName;

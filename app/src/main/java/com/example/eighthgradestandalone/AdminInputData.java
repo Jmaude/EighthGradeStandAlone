@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AdminInputData extends AppCompatActivity {
 
@@ -25,6 +24,24 @@ public class AdminInputData extends AppCompatActivity {
 
     }
     private void initTextChangeEvents() {
+
+        final EditText etStdNumId = findViewById(R.id.editStdNumId);
+        etStdNumId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                currentStudent.setStdId(etStdNumId.getText().toString());
+            }
+        });
         final EditText etStdFirstName = findViewById(R.id.editStdFirstName);
         etStdFirstName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -62,9 +79,11 @@ public class AdminInputData extends AppCompatActivity {
         });
 
 
+
     }
 
     private void initSaveButton() {
+
         Button buttonSave = findViewById(R.id.buttonSaveAdminStudent);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,19 +92,21 @@ public class AdminInputData extends AppCompatActivity {
                 StudentActivityDataSource ds = new StudentActivityDataSource(AdminInputData.this);
                 try {
                     ds.open();
-                    wasSuccessful = ds.insertStudent(currentStudent);
-                    if (wasSuccessful) {
-                        wasSuccessful = true;
-                    } else {
-                        wasSuccessful = ds.updateStudent(currentStudent);
+                    if (currentStudent.getStudentSystemID() == -1) {
+                        wasSuccessful = ds.insertStudent(currentStudent);
+                        if (wasSuccessful) {
+                            int newID = ds.getLastStudentSystemID();
+                            currentStudent.setStudentSystemID(newID);
+                        } else {
+                            wasSuccessful = ds.updateStudent(currentStudent);
+                        }
                     }
                     ds.close();
                 } catch (Exception e) {
                     wasSuccessful = false;
                 }
             }
+
         });
     }
-
-
 }

@@ -23,9 +23,9 @@ public class AdminStudentList extends AppCompatActivity {
         public void onClick(View view) {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            int studentID = students.get(position).getStudentID();
+            int studentSystemID = students.get(position).getStudentSystemID();
             Intent intent = new Intent(AdminStudentList.this, AdminInputData.class);
-            intent.putExtra("studentID", studentID);
+            intent.putExtra("studentSystemID", studentSystemID);
             startActivity(intent);
         }
     };

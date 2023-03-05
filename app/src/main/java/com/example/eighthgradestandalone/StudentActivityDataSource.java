@@ -38,9 +38,11 @@ public class StudentActivityDataSource {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 newStudent = new Student();
-                newStudent.setStudentID(cursor.getInt(1));
+                newStudent.setStdId(cursor.getString(1));
                 newStudent.setStdFirstName(cursor.getString(2));
                 newStudent.setStdLastName(cursor.getString(3));
+                students.add(newStudent);
+                cursor.moveToNext();
             }
             cursor.close();
         } catch (Exception e) {
@@ -55,7 +57,7 @@ public class StudentActivityDataSource {
             database = dbHelper.getWritableDatabase();
             ContentValues initialValues = new ContentValues();
 
-            initialValues.put("stdidnum", s.getStudentID());
+            initialValues.put("stdidnum", s.getStdId());
             initialValues.put("stdfirstname", s.getStdFirstName());
             initialValues.put("stdlastname", s.getStdLastName());
 
@@ -70,8 +72,9 @@ public class StudentActivityDataSource {
     public boolean updateStudent(Student s) {
         boolean didSucceed = false;
         try {
-            Long rowID = (long) s.getStudentID();
+            Long rowID = (long) s.getStudentSystemID();
             ContentValues updateValues = new ContentValues();
+            updateValues.put("stdidnum", s.getStdId());
             updateValues.put("stdfirstname",s.getStdFirstName());
             updateValues.put("stdlastname", s.getStdLastName());
 
@@ -80,6 +83,20 @@ public class StudentActivityDataSource {
 
         }
         return didSucceed;
+    }
+
+    public int getLastStudentSystemID() {
+        int lastID;
+        try {
+            String query = "Select MAX(_id) from student";
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            lastID = cursor.getInt(0);
+            cursor.close();
+        } catch (Exception e) {
+            lastID = -1;
+        }
+        return lastID;
     }
 
 
