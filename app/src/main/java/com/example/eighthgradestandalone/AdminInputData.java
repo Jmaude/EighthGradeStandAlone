@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class AdminInputData extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class AdminInputData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_input_data);
         currentStudent = new Student();
+        TextView textAmtDue = findViewById(R.id.textValueAmtDue);
+        textAmtDue.setText(currentStudent.getAmountDue());
         initTextChangeEvents();
         initSaveButton();
         initToggleButton();
@@ -85,13 +88,13 @@ public class AdminInputData extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void initSaveButton() {
 
         Button buttonSave = findViewById(R.id.buttonSave);
+        TextView textAmtDue = findViewById(R.id.textValueAmtDue);
+        textAmtDue.setText(currentStudent.setAmountPaid(Integer.parseInt(textAmtDue.toString())));
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

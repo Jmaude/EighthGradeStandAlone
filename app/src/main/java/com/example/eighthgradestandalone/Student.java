@@ -1,17 +1,14 @@
 package com.example.eighthgradestandalone;
 
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-
 public class Student {
     private int stdSystemID;
     private String stdFirstName;
     private String stdLastName;
     private String stdNum;
-    private String costFP;
-    private String costSF;
-    private String amountPaid;
-    private String amountDue;
+    private int costFP;
+    private int costSF;
+    private int amountPaid;
+    private int amountDue;
 
     public int getStdSystemID() {
         return stdSystemID;
@@ -45,38 +42,39 @@ public class Student {
         this.stdNum = stdNum;
     }
 
-    public String getCostFP() {
-        costFP = "50.00";
+    public int getCostFP() {
+        costFP = 50;
         return costFP;
     }
 
-    public void setCostFP(String costFP) {
+    public void setCostFP(int costFP) {
         this.costFP = costFP;
     }
 
-    public String getCostSF() {
-        costSF = "150.00"
+    public int getCostSF() {
+        costSF = 150;
         return costSF;
     }
 
-    public void setCostSF(String costSF) {
+    public void setCostSF(int costSF) {
         this.costSF = costSF;
     }
 
-    public String getAmountPaid() {
-        amountDue = "200.00";
+    public int getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(String amountPaid) {
-        this.amountPaid = amountPaid;
+    public int setAmountPaid(int amountPaid) {
+       amountPaid = 0;
+        return amountPaid;
     }
 
-    public String getAmountDue() {
+    public int getAmountDue() {
+        amountDue = costFP+costSF-amountPaid;
         return amountDue;
     }
 
-    public void setAmountDue(String amountDue) {
+    public void setAmountDue(int amountDue) {
         this.amountDue = amountDue;
     }
 }

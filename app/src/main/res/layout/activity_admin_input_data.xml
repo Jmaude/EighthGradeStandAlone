@@ -51,20 +51,18 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="76dp"
-                android:layout_marginEnd="16dp"
                 android:text="@string/studentIDtext"
                 android:textColor="@color/sunflower"
                 android:textSize="@dimen/text_size_md"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:layout_editor_absoluteX="74dp"
+                tools:layout_editor_absoluteY="29dp" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="80dp"
                 android:text="@string/stdNameFirst"
                 android:textColor="@color/sunflower"
                 android:textSize="@dimen/text_size_md"
@@ -90,9 +88,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:hint="@string/firstName"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:text="Name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -103,9 +101,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:hint="@string/lastName"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:text="Name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
@@ -125,15 +123,13 @@
                 android:id="@+id/editStdNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="4dp"
                 android:ems="10"
                 android:hint="@string/studentID"
                 android:inputType="number"
                 android:minHeight="48dp"
                 android:textAlignment="textEnd"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editStdNameFirst" />
+                tools:layout_editor_absoluteX="174dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <TextView
                 android:id="@+id/textFoodPackage"
@@ -163,24 +159,47 @@
                 android:id="@+id/textAmountDue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="56dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="68dp"
                 android:text="@string/AmtDue"
                 android:textColor="@color/sunflower"
                 android:textSize="@dimen/text_size_lg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAmountPaid" />
+                app:layout_constraintEnd_toStartOf="@+id/textValueAmtDue"
+                app:layout_constraintTop_toBottomOf="@+id/textAmountDue2" />
 
             <TextView
-                android:id="@+id/textAmountPaid"
+                android:id="@+id/textAmountDue2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/amountPaid"
                 android:textColor="@color/sunflower"
                 android:textSize="@dimen/text_size_lg"
+                app:layout_constraintEnd_toStartOf="@+id/editAmtPaid"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <EditText
+                android:id="@+id/editAmtPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="37dp"
+                android:layout_marginEnd="12dp"
+                android:ems="10"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="470dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textCostSF" />
+
+            <TextView
+                android:id="@+id/textValueAmtDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="80dp"
+                android:text="@string/AmtDue"
+                android:textSize="@dimen/text_size_lg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editAmtPaid" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

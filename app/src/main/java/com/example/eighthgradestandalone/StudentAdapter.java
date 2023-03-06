@@ -77,7 +77,18 @@ public class StudentAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         StudentViewHolder svh = (StudentViewHolder) holder;
-        svh.getStudent().setText(studentData.get(position));
+        if (position % 2 == 0){
+            ((StudentViewHolder) holder).textStdFirstName.setTextColor(Color.BLUE);
+        } else {
+            ((StudentViewHolder) holder).textStdFirstName.setTextColor(Color.RED);
+        }
+        svh.getTextStdFirstName().setText(studentData.get(position).getStdFirstName());
+        svh.getTextStdLastName().setText(studentData.get(position).getStdLastName());
+        svh.getTextStdNum().setText(studentData.get(position).getStdNum());
+        svh.getTextCostSF().setText(studentData.get(position).getCostSF());
+        svh.getTextCostFP().setText(studentData.get(position).getCostFP());
+        svh.getTextAmtDue().setText(studentData.get(position).getAmountDue());
+        svh.getTextAmtPaid().setText(studentData.get(position).getAmountPaid());
 
     }
 
@@ -85,6 +96,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return studentData.size();
     }
+
 
 
 }
