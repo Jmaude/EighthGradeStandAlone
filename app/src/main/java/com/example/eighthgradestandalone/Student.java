@@ -1,31 +1,24 @@
 package com.example.eighthgradestandalone;
 
-public class Student {
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 
-    private int studentSystemID;
-    private String stdId;
+public class Student {
+    private int stdSystemID;
     private String stdFirstName;
     private String stdLastName;
+    private String stdNum;
+    private String costFP;
+    private String costSF;
+    private String amountPaid;
+    private String amountDue;
 
-    public Student() {
-        studentSystemID = -1;
-
+    public int getStdSystemID() {
+        return stdSystemID;
     }
 
-    public int getStudentSystemID() {
-        return studentSystemID;
-    }
-
-    public void setStudentSystemID(int studentSystemID) {
-        this.studentSystemID = studentSystemID;
-    }
-
-    public String getStdId() {
-        return stdId;
-    }
-
-    public void setStdId(String stdId) {
-        this.stdId = stdId;
+    public void setStdSystemID(int stdSystemID) {
+        this.stdSystemID = stdSystemID;
     }
 
     public String getStdFirstName() {
@@ -42,5 +35,48 @@ public class Student {
 
     public void setStdLastName(String stdLastName) {
         this.stdLastName = stdLastName;
+    }
+
+    public String getStdNum() {
+        return stdNum;
+    }
+
+    public void setStdNum(String stdNum) {
+        this.stdNum = stdNum;
+    }
+
+    public String getCostFP() {
+        costFP = "50.00";
+        return costFP;
+    }
+
+    public void setCostFP(String costFP) {
+        this.costFP = costFP;
+    }
+
+    public String getCostSF() {
+        costSF = "150.00"
+        return costSF;
+    }
+
+    public void setCostSF(String costSF) {
+        this.costSF = costSF;
+    }
+
+    public String getAmountPaid() {
+        amountDue = "200.00";
+        return amountPaid;
+    }
+
+    public void setAmountPaid(String amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public String getAmountDue() {
+        return amountDue;
+    }
+
+    public void setAmountDue(String amountDue) {
+        this.amountDue = amountDue;
     }
 }

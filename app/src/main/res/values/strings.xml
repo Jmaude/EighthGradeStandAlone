@@ -4,7 +4,7 @@
     <string name="adminId">Admin ID</string>
     <string name="student">Student</string>
     <string name="instructor">Instructor</string>
-    <string name="studentID">Student ID: 12345678</string>
+    <string name="studentID">12345678</string>
     <string name="password">Password</string>
     <string name="LogOnStudent">Please enter your student ID and the Password given to you from your instructor</string>
     <string name="logOn">Log On</string>
@@ -13,4 +13,23 @@
     <string name="stdLastName">Student Last Name:</string>
     <string name="infoNotMain">Information Not Maintained</string>
     <string name="savebutton">SAVE</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="editButton">edit</string>
+    <string name="editbutton">Edit</string>
+    <string name="listView">List</string>
+    <string name="stdNameFirst">Student\'s First Name</string>
+    <string name="lastName2">Student\'s Last Name</string>
+    <string name="studentIDtext">Student ID</string>
+    <string name="purchaseOpt">Purchase Options</string>
+    <string name="shirt">Shirt</string>
+    <string name="shirtsize">Size Selected</string>
+    <string name="cost">Cost</string>
+    <string name="AmtDue">AmtDue</string>
+    <string name="sixFlags">Six Flags</string>
+    <string name="small">Small</string>
+    <string name="med">medium</string>
+    <string name="large">Large</string>
+    <string name="foodPackage">Food Package</string>
+    <string name="amountPaid">Amount Paid</string>
 </resources>

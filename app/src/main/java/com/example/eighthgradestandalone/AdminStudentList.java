@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class AdminStudentList extends AppCompatActivity {
         public void onClick(View view) {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            int studentSystemID = students.get(position).getStudentSystemID();
+            int studentSystemID = students.get(position).getStdSystemID();
             Intent intent = new Intent(AdminStudentList.this, AdminInputData.class);
             intent.putExtra("studentSystemID", studentSystemID);
             startActivity(intent);
@@ -34,6 +36,14 @@ public class AdminStudentList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_student_list);
+        initAddStudent();
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         StudentActivityDataSource ds = new StudentActivityDataSource(this);
 
@@ -56,8 +66,25 @@ public class AdminStudentList extends AppCompatActivity {
         } catch(Exception e) {
             Toast.makeText(this, "Error Retrieving Student List", Toast.LENGTH_LONG).show();
         }
-
-
-
     }
+
+    public void initAddStudent() {
+        ImageButton newStudent = findViewById(R.id.buttonAdd);
+        newStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminStudentList.this, AdminInputData.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+
+
+
+
 }
+
+

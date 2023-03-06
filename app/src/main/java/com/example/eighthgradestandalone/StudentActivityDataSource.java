@@ -26,8 +26,6 @@ public class StudentActivityDataSource {
         dbHelper.close();
     }
 
-    public boolean insertStudent;
-
     public ArrayList<Student> getStudents() {
         ArrayList<Student> students = new ArrayList<Student>();
         try {
@@ -38,9 +36,9 @@ public class StudentActivityDataSource {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 newStudent = new Student();
-                newStudent.setStdId(cursor.getString(1));
-                newStudent.setStdFirstName(cursor.getString(2));
-                newStudent.setStdLastName(cursor.getString(3));
+                newStudent.setStdFirstName(cursor.getString(1));
+                newStudent.setStdLastName(cursor.getString(2));
+                newStudent.setStdNum(cursor.getString(3));
                 students.add(newStudent);
                 cursor.moveToNext();
             }
@@ -57,10 +55,11 @@ public class StudentActivityDataSource {
             database = dbHelper.getWritableDatabase();
             ContentValues initialValues = new ContentValues();
 
-            initialValues.put("stdidnum", s.getStdId());
             initialValues.put("stdfirstname", s.getStdFirstName());
             initialValues.put("stdlastname", s.getStdLastName());
-
+            initialValues.put("stdidnum", s.getStdNum());
+            initialValues.put("costfp", s.getCostFP());
+            initialValues.put("costsf", s.getCostSF());
             didSucceed = database.insert("student", null, initialValues) > 0;
         } catch (Exception e) {
 
@@ -72,11 +71,11 @@ public class StudentActivityDataSource {
     public boolean updateStudent(Student s) {
         boolean didSucceed = false;
         try {
-            Long rowID = (long) s.getStudentSystemID();
+            Long rowID = (long) s.getStdSystemID();
             ContentValues updateValues = new ContentValues();
-            updateValues.put("stdidnum", s.getStdId());
-            updateValues.put("stdfirstname",s.getStdFirstName());
+            updateValues.put("stdfirstname", s.getStdFirstName());
             updateValues.put("stdlastname", s.getStdLastName());
+            updateValues.put("stdidnum", s.getStdNum());
 
             didSucceed = database.update("student", updateValues, "stdidnum=" + rowID, null) > 0;
         } catch (Exception e) {
