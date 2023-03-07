@@ -7,6 +7,19 @@
     android:background="@color/hunter"
     tools:context=".StudentLogOn">
 
+    <Button
+        android:id="@+id/buttonStLogOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="159dp"
+        android:text="@string/logOn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNumberPW2" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -30,7 +43,7 @@
         app:srcCompat="@drawable/schoollogo" />
 
     <EditText
-        android:id="@+id/textAdminID2"
+        android:id="@+id/textStudentId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
@@ -53,5 +66,5 @@
         android:inputType="numberPassword"
         android:textColor="@color/sunflower"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAdminID2" />
+        app:layout_constraintTop_toBottomOf="@+id/textStudentId" />
 </androidx.constraintlayout.widget.ConstraintLayout>

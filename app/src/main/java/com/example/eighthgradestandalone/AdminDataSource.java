@@ -5,17 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class StudentActivityDataSource {
+public class AdminDataSource {
     private SQLiteDatabase database;
-    private StudentActivityDBHelper dbHelper;
+    private AdminDBHelper dbHelper;
 
-    public StudentActivityDataSource(Context context){
-        dbHelper = new StudentActivityDBHelper(context);
+    public AdminDataSource(Context context){
+        dbHelper = new AdminDBHelper(context);
     }
 
     public void open() throws SQLException {
@@ -26,41 +24,38 @@ public class StudentActivityDataSource {
         dbHelper.close();
     }
 
-    public ArrayList<Student> getStudents() {
-        ArrayList<Student> students = new ArrayList<Student>();
+    public ArrayList<Admin> getAdmin() {
+        ArrayList<Admin> admin = new ArrayList<Admin>();
         try {
-            String query = "SELECT * FROM student";
+            String query = "SELECT * FROM admin";
             Cursor cursor = database.rawQuery(query,null);
 
-            Student newStudent;
+            Admin newAdmin;
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                newStudent = new Student();
-                newStudent.setStdFirstName(cursor.getString(1));
-                newStudent.setStdLastName(cursor.getString(2));
-                newStudent.setStdNum(cursor.getString(3));
-                students.add(newStudent);
+                newAdmin = new Admin();
+                newAdmin.setAdminId(cursor.getString(1));
+                newAdmin.setAdminPassword(cursor.getString(2));
+                admin.add(newAdmin);
                 cursor.moveToNext();
             }
             cursor.close();
         } catch (Exception e) {
-            students = new ArrayList<Student>();
+            admin = new ArrayList<Admin>();
         }
-        return students;
+        return admin;
     }
 
-    public boolean insertStudent(Student s) {
+    public boolean insertAdmin(Admin a) {
         boolean didSucceed = false;
         try {
             database = dbHelper.getWritableDatabase();
             ContentValues initialValues = new ContentValues();
 
-            initialValues.put("stdfirstname", s.getStdFirstName());
-            initialValues.put("stdlastname", s.getStdLastName());
-            initialValues.put("stdidnum", s.getStdNum());
-            initialValues.put("costfp", s.getCostFP());
-            initialValues.put("costsf", s.getCostSF());
-            didSucceed = database.insert("student", null, initialValues) > 0;
+            initialValues.put("username", a.getAdminID());
+            initialValues.put("password", a.getAdminPassword());
+
+            didSucceed = database.insert("admin", null, initialValues) > 0;
         } catch (Exception e) {
 
         }
@@ -68,8 +63,8 @@ public class StudentActivityDataSource {
     }
 
 
-    public boolean updateStudent(Student s) {
-        boolean didSucceed = false;
+   /* public boolean updateAdmin(Admin a) {
+       boolean didSucceed = false;
         try {
             Long rowID = (long) s.getStdSystemID();
             ContentValues updateValues = new ContentValues();
@@ -77,17 +72,19 @@ public class StudentActivityDataSource {
             updateValues.put("stdlastname", s.getStdLastName());
             updateValues.put("stdidnum", s.getStdNum());
 
-            didSucceed = database.update("student", updateValues, "stdidnum=" + rowID, null) > 0;
+            didSucceed = database.update("admin", updateValues, "stdidnum=" + rowID, null) > 0;
         } catch (Exception e) {
 
         }
         return didSucceed;
-    }
+        }
+        */
 
-    public int getLastStudentSystemID() {
+
+    public int getLastAdminID() {
         int lastID;
         try {
-            String query = "Select MAX(_id) from student";
+            String query = "Select MAX(_id) from admin";
             Cursor cursor = database.rawQuery(query,null);
             cursor.moveToFirst();
             lastID = cursor.getInt(0);
@@ -97,6 +94,4 @@ public class StudentActivityDataSource {
         }
         return lastID;
     }
-
-
 }

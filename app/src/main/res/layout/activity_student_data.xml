@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentData">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hunter"
+        tools:context=".AdminInputData">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/savebutton" />
+
+            <ToggleButton
+                android:id="@+id/toggleEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/editButton" />
+
+            <Button
+                android:id="@+id/buttonList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/listView" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="-16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textCostSF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="132dp"
+                    android:layout_marginTop="108dp"
+                    android:text="@string/cost"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    app:layout_constraintStart_toEndOf="@+id/textFoodPackage"
+                    app:layout_constraintTop_toBottomOf="@+id/textCostFP" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="100dp"
+                    android:text="@string/sixFlags"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textFoodPackage" />
+
+                <TextView
+                    android:id="@+id/textFoodPackage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/foodPackage"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="116dp" />
+
+                <TextView
+                    android:id="@+id/textCostFP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="140dp"
+                    android:text="@string/cost"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    app:layout_constraintStart_toEndOf="@+id/textFoodPackage"
+                    tools:layout_editor_absoluteY="116dp" />
+
+                <TextView
+                    android:id="@+id/textAmountPaid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="148dp"
+                    android:text="@string/amountPaid"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="355dp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="56dp"
+                    android:text="TextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCostFP" />
+
+                <TextView
+                    android:id="@+id/showFoodCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="56dp"
+                    android:text="TextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCostFP" />
+
+                <TextView
+                    android:id="@+id/showSFcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="56dp"
+                    android:text="TextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCostSF" />
+
+                <TextView
+                    android:id="@+id/showAmountDue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="TextView"
+                    tools:layout_editor_absoluteX="176dp"
+                    tools:layout_editor_absoluteY="527dp" />
+
+                <TextView
+                    android:id="@+id/showAmountPaid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="TextView"
+                    tools:layout_editor_absoluteX="176dp"
+                    tools:layout_editor_absoluteY="421dp" />
+
+                <TextView
+                    android:id="@+id/textAmountDue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AmtDue"
+                    android:textColor="@color/sunflower"
+                    android:textSize="@dimen/text_size_lg"
+                    tools:layout_editor_absoluteX="165dp"
+                    tools:layout_editor_absoluteY="472dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
