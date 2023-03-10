@@ -63,22 +63,6 @@ public class AdminDataSource {
     }
 
 
-   /* public boolean updateAdmin(Admin a) {
-       boolean didSucceed = false;
-        try {
-            Long rowID = (long) s.getStdSystemID();
-            ContentValues updateValues = new ContentValues();
-            updateValues.put("stdfirstname", s.getStdFirstName());
-            updateValues.put("stdlastname", s.getStdLastName());
-            updateValues.put("stdidnum", s.getStdNum());
-
-            didSucceed = database.update("admin", updateValues, "stdidnum=" + rowID, null) > 0;
-        } catch (Exception e) {
-
-        }
-        return didSucceed;
-        }
-        */
 
 
     public int getLastAdminID() {
