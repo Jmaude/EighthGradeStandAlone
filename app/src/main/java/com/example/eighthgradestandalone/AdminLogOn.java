@@ -22,6 +22,8 @@ public class AdminLogOn extends AppCompatActivity {
         DB = new AdminDBHelper(this);
 
         Button bttnLogOn = findViewById(R.id.buttonLogOn);
+        Button bttnRegister = findViewById(R.id.registerButton);
+
         bttnLogOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +63,8 @@ public class AdminLogOn extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 

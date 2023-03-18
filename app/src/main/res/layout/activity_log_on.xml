@@ -68,19 +68,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="159dp"
         android:text="@string/logOn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNumberPW" />
+        tools:layout_editor_absoluteY="550dp" />
 
     <Button
-        android:id="@+id/initializeButton"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="initialize"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="605dp" />
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="7dp"
+        android:text="Register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogOn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
