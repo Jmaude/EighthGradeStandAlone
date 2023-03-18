@@ -24,6 +24,16 @@ public class AdminLogOn extends AppCompatActivity {
         Button bttnLogOn = findViewById(R.id.buttonLogOn);
         Button bttnRegister = findViewById(R.id.registerButton);
 
+
+        bttnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminLogOn.this, AdminCreateDB.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
         bttnLogOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

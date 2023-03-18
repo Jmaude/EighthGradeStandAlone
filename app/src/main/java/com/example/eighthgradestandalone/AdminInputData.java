@@ -8,10 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -35,7 +32,7 @@ public class AdminInputData extends AppCompatActivity {
     }
     private void initTextChangeEvents() {
 
-        final EditText etStdFirstName = findViewById(R.id.editStdNameFirst);
+        final EditText etStdFirstName = findViewById(R.id.editAdminFirstName);
         etStdFirstName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -52,7 +49,7 @@ public class AdminInputData extends AppCompatActivity {
                 currentStudent.setStdFirstName(etStdFirstName.getText().toString());
             }
         });
-        final EditText etStdLastName = findViewById(R.id.editStdNameLast);
+        final EditText etStdLastName = findViewById(R.id.editAdminLastName);
         etStdLastName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -134,8 +131,8 @@ public class AdminInputData extends AppCompatActivity {
     }
 
     private void setForEditing(boolean enabled) {
-        EditText editFirstName = findViewById(R.id.editStdNameFirst);
-        EditText editLastName  = findViewById(R.id.editStdNameLast);
+        EditText editFirstName = findViewById(R.id.editAdminFirstName);
+        EditText editLastName  = findViewById(R.id.editAdminLastName);
         EditText editStdNum = findViewById(R.id.editStdNum);
         editFirstName.setEnabled(enabled);
         editLastName.setEnabled(enabled);

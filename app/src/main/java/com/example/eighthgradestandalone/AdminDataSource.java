@@ -34,8 +34,8 @@ public class AdminDataSource {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 newAdmin = new Admin();
-                newAdmin.setAdminId(cursor.getString(1));
-                newAdmin.setAdminPassword(cursor.getString(2));
+                newAdmin.setAdUserID(cursor.getString(1));
+                newAdmin.setAdminPassword(Integer.parseInt(cursor.getString(2)));
                 admin.add(newAdmin);
                 cursor.moveToNext();
             }
@@ -52,8 +52,10 @@ public class AdminDataSource {
             database = dbHelper.getWritableDatabase();
             ContentValues initialValues = new ContentValues();
 
-            initialValues.put("username", a.getAdminID());
-            initialValues.put("password", a.getAdminPassword());
+            initialValues.put("admfirstname", a.getAdminFirstName());
+            initialValues.put("admlastname", a.getAdminLastName());
+            initialValues.put("admusername", a.getAdUserID());
+            initialValues.put("admpassword", a.getAdminPassword());
 
             didSucceed = database.insert("admin", null, initialValues) > 0;
         } catch (Exception e) {
@@ -61,8 +63,6 @@ public class AdminDataSource {
         }
         return didSucceed;
     }
-
-
 
 
     public int getLastAdminID() {

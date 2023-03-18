@@ -12,8 +12,13 @@ public class AdminDBHelper extends SQLiteOpenHelper {
     private SQLiteDatabase database;
     private static final String DATABASE_TABLE = "admin";
 
+
     private static final String CREATE_TABLE_ADMIN =
-            "create table admin (_id integer primary Key AUTOINCREMENT, username text, password text);";
+            "create table admin (_id integer primary key AUTOINCREMENT, admfirstname text, admlastname text, admusername int, admpassword int)";
+
+    private static final String CREATE_TABLE_STUDENT =
+            "create table student (_id integer primary Key AUTOINCREMENT, stdfirstname text, stdlastname text, stdNum text," +
+                    "costfp Integer default 50.00, costsf integer default 150.00, amountpaid integer default 0.00, amountdue integer default 0.00);";
 
 
     public AdminDBHelper(Context context) {
@@ -22,6 +27,7 @@ public class AdminDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_ADMIN);
+        db.execSQL(CREATE_TABLE_STUDENT);
     }
 
     @Override

@@ -41,4 +41,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="adminFirst">Admin\'s First Name</string>
+    <string name="adminLastName">Admin\'s Last Name</string>
 </resources>

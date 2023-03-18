@@ -2,26 +2,15 @@ package com.example.eighthgradestandalone;
 
 public class Admin {
     private int adminID;
-    private String adminId;
+    private String adUserID;
+    private String adminFirstName;
+    private String adminLastName;
+    private int adminPassword;
 
-    public String getAdminId() {
-        return adminId;
+
+    public Admin() {
+        adminID = -1;
     }
-
-    public void setAdminId(String adminId) {
-        this.adminId = adminId;
-    }
-
-    public String getAdminPassword() {
-        return adminPassword;
-    }
-
-    public void setAdminPassword(String adminPassword) {
-        this.adminPassword = adminPassword;
-    }
-
-    private String adminPassword;
-
 
     public int getAdminID() {
         return adminID;
@@ -31,6 +20,37 @@ public class Admin {
         this.adminID = adminID;
     }
 
-//Hello
+    public String getAdUserID() {
+        return adUserID;
+    }
+
+    public void setAdUserID(String adUserID) {
+        this.adUserID = adUserID;
+    }
+
+    public String getAdminFirstName() {
+        return adminFirstName;
+    }
+
+    public void setAdminFirstName(String adminFirstName) {
+        this.adminFirstName = adminFirstName;
+    }
+
+    public String getAdminLastName() {
+        return adminLastName;
+    }
+
+    public void setAdminLastName(String adminLastName) {
+        this.adminLastName = adminLastName;
+    }
+
+    public int getAdminPassword() {
+        return adminPassword;
+    }
+
+    public void setAdminPassword(int adminPassword) {
+        this.adminPassword = adminPassword;
+    }
+
 
 }
