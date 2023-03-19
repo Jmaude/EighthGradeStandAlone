@@ -38,23 +38,28 @@ public class AdminLogOn extends AppCompatActivity {
         bttnLogOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminLogOn.this, AdminStudentList.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                String aId = adminId.getText().toString();
-                String aPass = adminPW.getText().toString();
-
-                boolean checkAd = adb.checkAdmin(aId, aPass);
-
-                if (checkAd == true) {
-                    Intent i = new Intent(getApplicationContext(), AdminInputData.class);
-                    startActivity(i);
+            String adID = adminId.getText().toString();
+            String adPW = adminPW.getText().toString();
+            AdminDataSource adb = new AdminDataSource(AdminLogOn.this);
+            try {
+                adb.open();
+                int pw = Integer.parseInt(adPW);
+                int id = Integer.parseInt(adID);
+                int adbPassword = adb.checkAdmin(id);
+                if (adbPassword == pw) {
+                    Intent intent = new Intent(AdminLogOn.this, AdminInputData.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(AdminLogOn.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
+            } catch (Exception e) {
+
             }
 
-    });
+            }
+        });
+
 
 }
 

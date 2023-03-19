@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -78,15 +79,20 @@ public class AdminDataSource {
         }
         return lastID;
     }
-    public boolean checkAdmin(String username, String password) {
-        Admin admin = new Admin();
-        String query = "SELECT admusername, admpassword FROM admin WHERE admusername=? AND admpassword=?";
+    public int checkAdmin(int username) {
+        int password;
 
-        Cursor mCursor = database.rawQuery(query, new String[]{username,password});
-        if (mCursor != null) {
-            return false;
+        try {
+
+            String query = "SELECT * FROM admin WHERE admusername = " + username;
+            Cursor mCursor = database.rawQuery(query,null);
+            mCursor.moveToFirst();
+            password = mCursor.getInt(4);
+
+        } catch (Exception e) {
+            password = -1;
         }
-        return true;
+        return password;
     }
 
 }
