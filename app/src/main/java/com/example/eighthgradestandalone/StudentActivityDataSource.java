@@ -38,7 +38,7 @@ public class StudentActivityDataSource {
                 newStudent = new Student();
                 newStudent.setStdFirstName(cursor.getString(1));
                 newStudent.setStdLastName(cursor.getString(2));
-                newStudent.setStdNum(cursor.getString(3));
+                newStudent.setStdNum(Integer.parseInt(cursor.getString(3)));
                 students.add(newStudent);
                 cursor.moveToNext();
             }
@@ -57,9 +57,7 @@ public class StudentActivityDataSource {
 
             initialValues.put("stdfirstname", s.getStdFirstName());
             initialValues.put("stdlastname", s.getStdLastName());
-            initialValues.put("stdidnum", s.getStdNum());
-            initialValues.put("costfp", s.getCostFP());
-            initialValues.put("costsf", s.getCostSF());
+            initialValues.put("stdNum", s.getStdNum());
             didSucceed = database.insert("student", null, initialValues) > 0;
         } catch (Exception e) {
 

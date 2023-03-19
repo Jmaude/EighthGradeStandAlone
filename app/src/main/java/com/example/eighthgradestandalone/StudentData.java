@@ -34,7 +34,7 @@ public class StudentData extends AppCompatActivity {
     }
 
     public void initPaymentButton() {
-        Button buttonPay = findViewById(R.id.bttnPayment);
+        Button buttonPay = findViewById(R.id.bttnSave);
         buttonPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +47,7 @@ public class StudentData extends AppCompatActivity {
     }
 
     public void initLogoutButton() {
-        Button buttonLogout = findViewById(R.id.bttnLogout);
+        Button buttonLogout = findViewById(R.id.bttnList);
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

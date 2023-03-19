@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editAdminFirstName"
+                android:id="@+id/editStdFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <EditText
-                android:id="@+id/editAdminLastName"
+                android:id="@+id/editStdLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
                 android:textColor="@color/sunflower"
                 android:textSize="@dimen/text_size_md"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editAdminFirstName" />
+                app:layout_constraintTop_toBottomOf="@+id/editStdFirstName" />
 
             <EditText
                 android:id="@+id/editAdminUserName"
@@ -82,7 +82,7 @@
                 android:hint="@string/adminId"
                 android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editAdminLastName" />
+                app:layout_constraintTop_toBottomOf="@+id/editStdLastName" />
 
             <EditText
                 android:id="@+id/editPassword"

@@ -4,7 +4,7 @@ public class Student {
     private int stdSystemID;
     private String stdFirstName;
     private String stdLastName;
-    private String stdNum;
+    private int stdNum;
     private int costFP;
     private int costSF;
     private int amountPaid;
@@ -34,11 +34,11 @@ public class Student {
         this.stdLastName = stdLastName;
     }
 
-    public String getStdNum() {
+    public int getStdNum() {
         return stdNum;
     }
 
-    public void setStdNum(String stdNum) {
+    public void setStdNum(int stdNum) {
         this.stdNum = stdNum;
     }
 
