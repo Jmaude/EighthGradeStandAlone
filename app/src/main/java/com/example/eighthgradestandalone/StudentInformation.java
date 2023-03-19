@@ -20,10 +20,10 @@ public class StudentInformation extends AppCompatActivity {
         TextView aPaid = findViewById(R.id.showAP);
         TextView aDue = findViewById(R.id.show_AD);
 
-        fPrice.setText("$75.00");
-        sfPrice.setText("$25.00");
-        aPaid.setText("$50.00");
-        aDue.setText("$50.00");
+        fPrice.setText("75.00");
+        sfPrice.setText("25.00");
+        aPaid.setText("50.00");
+        aDue.setText("50.00");
 
         initMakePaymentButton();
         initLogoutButton();

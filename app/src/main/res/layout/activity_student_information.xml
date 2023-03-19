@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="125dp"
             android:layout_marginEnd="125dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="50dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,12 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonStdMain"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/button_outline"
-                android:text="Student Home" />
+                android:text="Student Home"
+                android:textColor="#F1C7C8" />
 
         </LinearLayout>
 
@@ -37,26 +38,47 @@
             android:id="@+id/tableLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="132dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="65dp"
+            android:background="@color/button_text"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/fP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Food Package" />
+                    android:text="Food Package : "
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/showFP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
 
             </TableRow>
 
@@ -68,13 +90,31 @@
                     android:id="@+id/sF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Six Flags" />
+                    android:text="Six Flags : "
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/showSF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
 
             </TableRow>
 
@@ -86,13 +126,31 @@
                     android:id="@+id/aP"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Amount Paid" />
+                    android:text="Amount Paid : "
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/showAP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
 
             </TableRow>
 
@@ -104,26 +162,48 @@
                     android:id="@+id/aDue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Amount Due" />
+                    android:text="Amount Due : "
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/show_AD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:background="@drawable/gradient_background_yellow"
+                    android:text="TextView"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="24sp" />
             </TableRow>
         </TableLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonMakePayment"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="152dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="150dp"
             android:layout_weight="1"
             android:background="@drawable/button_outline"
             android:text="Make Paymnet"
+            android:textColor="#FEFEFE"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
