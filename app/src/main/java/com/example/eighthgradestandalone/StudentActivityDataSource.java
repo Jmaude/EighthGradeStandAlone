@@ -98,5 +98,16 @@ public class StudentActivityDataSource {
         return lastID;
     }
 
+    public Student getSpecificStudent(int studentId){
+        Student student = null;
+        String query = "SELECT * FROM student WHERE _id=" + studentId;
+        Cursor cursor = database.rawQuery(query, null);
+                if (cursor.moveToFirst()){
+                    student = new Student();
+                }
+                cursor.close();
+                return student;
+    }
+
 
 }
