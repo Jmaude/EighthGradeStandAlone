@@ -9,7 +9,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class AdminInputData extends AppCompatActivity {
@@ -21,18 +20,17 @@ public class AdminInputData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_input_data);
         currentStudent = new Student();
-        TextView textAmtDue = findViewById(R.id.textValueAmtDue);
-        textAmtDue.setText(currentStudent.getAmountDue());
         initTextChangeEvents();
         initSaveButton();
         initToggleButton();
         setForEditing(false);
+        initListView();
 
 
     }
     private void initTextChangeEvents() {
 
-        final EditText etStdFirstName = findViewById(R.id.editAdminFirstName);
+        final EditText etStdFirstName = findViewById(R.id.editStdFirstName);
         etStdFirstName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -49,7 +47,7 @@ public class AdminInputData extends AppCompatActivity {
                 currentStudent.setStdFirstName(etStdFirstName.getText().toString());
             }
         });
-        final EditText etStdLastName = findViewById(R.id.editAdminLastName);
+        final EditText etStdLastName = findViewById(R.id.editStdLastName);
         etStdLastName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -81,44 +79,45 @@ public class AdminInputData extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                currentStudent.setStdNum(etStudentID.getText().toString());
+                currentStudent.setStdNum(Integer.parseInt(etStudentID.getText().toString()));
             }
         });
 
     }
 
     private void initSaveButton() {
-
-        Button buttonSave = findViewById(R.id.bttnPayment);
-        TextView textAmtDue = findViewById(R.id.textValueAmtDue);
-        textAmtDue.setText(currentStudent.setAmountPaid(Integer.parseInt(textAmtDue.toString())));
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        Button btSave = findViewById(R.id.bttnSave);
+        btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean wasSuccessful = true;
-                StudentActivityDataSource ds = new StudentActivityDataSource(AdminInputData.this);
+                StudentActivityDataSource sdb = new StudentActivityDataSource(AdminInputData.this);
                 try {
-                    ds.open();
-                    if (currentStudent.getStdSystemID() == -1) {
-                        wasSuccessful = ds.insertStudent(currentStudent);
-                        if (wasSuccessful) {
-                            int newID = ds.getLastStudentSystemID();
-                            currentStudent.setStdSystemID(newID);
-                        } else {
-                            wasSuccessful = ds.updateStudent(currentStudent);
-                        }
+                    sdb.open();
+                    if(currentStudent.getStdNum() == -1);
+                    wasSuccessful = sdb.insertStudent(currentStudent);
+                    if (wasSuccessful) {
+                        int newID = sdb.getLastStudentSystemID();
+                        currentStudent.setStdNum(newID);
+                    } else {
+                        wasSuccessful = sdb.updateStudent(currentStudent);
                     }
-                    ds.close();
+                    sdb.close();
                 } catch (Exception e) {
                     wasSuccessful = false;
                 }
-                Intent intent = new Intent(AdminInputData.this, AdminStudentList.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
+                if(wasSuccessful) {
+                    ToggleButton editToggle = findViewById(R.id.toggleEdit);
+                    editToggle.toggle();
+                    setForEditing(false);
+                }
 
+
+
+            }
         });
     }
+
 
     private void initToggleButton() {
         final ToggleButton editToggle = (ToggleButton) findViewById(R.id.toggleEdit);
@@ -131,12 +130,25 @@ public class AdminInputData extends AppCompatActivity {
     }
 
     private void setForEditing(boolean enabled) {
-        EditText editFirstName = findViewById(R.id.editAdminFirstName);
-        EditText editLastName  = findViewById(R.id.editAdminLastName);
+        EditText editFirstName = findViewById(R.id.editStdFirstName);
+        EditText editLastName  = findViewById(R.id.editStdLastName);
         EditText editStdNum = findViewById(R.id.editStdNum);
         editFirstName.setEnabled(enabled);
         editLastName.setEnabled(enabled);
         editStdNum.setEnabled(enabled);
+    }
+
+    private void initListView(){
+        Button list = findViewById(R.id.bttnList);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminInputData.this, AdminStudentList.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

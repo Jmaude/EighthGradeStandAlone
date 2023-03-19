@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 public class AdminLogOn extends AppCompatActivity {
     private Admin currentAdmin;
-    AdminDBHelper DB;
+    AdminDataSource adb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class AdminLogOn extends AppCompatActivity {
 
         EditText adminId = findViewById(R.id.editAdminID);
         EditText adminPW = findViewById(R.id.editNumberPW);
-        DB = new AdminDBHelper(this);
+        adb = new AdminDataSource(this);
 
         Button bttnLogOn = findViewById(R.id.buttonLogOn);
         Button bttnRegister = findViewById(R.id.registerButton);
@@ -43,39 +44,18 @@ public class AdminLogOn extends AppCompatActivity {
                 String aId = adminId.getText().toString();
                 String aPass = adminPW.getText().toString();
 
-                boolean checkAd = DB.checkAdmin(aId,aPass);
+                boolean checkAd = adb.checkAdmin(aId, aPass);
 
                 if (checkAd == true) {
                     Intent i = new Intent(getApplicationContext(), AdminInputData.class);
                     startActivity(i);
-                }
-                AdminDataSource ds = new AdminDataSource(AdminLogOn.this);
-                boolean wasSuccessful;
-
-                try{
-                    ds.open();
-
-                    if(currentAdmin.getAdminID() == -1){
-                        wasSuccessful = ds.insertAdmin(currentAdmin);
-
-                        if(wasSuccessful){
-                            int newId = ds.getLastAdminID();
-                            currentAdmin.setAdminID(newId);
-                        }
-
-                    } else {
-                        Toast.makeText(AdminLogOn.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                    }
-                    ds.close();
-                }
-                catch (Exception e){
-                    wasSuccessful = false;
+                } else {
+                    Toast.makeText(AdminLogOn.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
 
+    });
 
-
-    }
+}
 
 }

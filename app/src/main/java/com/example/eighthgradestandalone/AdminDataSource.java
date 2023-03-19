@@ -78,4 +78,15 @@ public class AdminDataSource {
         }
         return lastID;
     }
+    public boolean checkAdmin(String username, String password) {
+        Admin admin = new Admin();
+        String query = "SELECT admusername, admpassword FROM admin WHERE admusername=? AND admpassword=?";
+
+        Cursor mCursor = database.rawQuery(query, new String[]{username,password});
+        if (mCursor != null) {
+            return false;
+        }
+        return true;
+    }
+
 }

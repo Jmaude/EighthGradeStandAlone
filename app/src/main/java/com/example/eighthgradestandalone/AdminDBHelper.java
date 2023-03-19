@@ -17,8 +17,9 @@ public class AdminDBHelper extends SQLiteOpenHelper {
             "create table admin (_id integer primary key AUTOINCREMENT, admfirstname text, admlastname text, admusername int, admpassword int)";
 
     private static final String CREATE_TABLE_STUDENT =
-            "create table student (_id integer primary Key AUTOINCREMENT, stdfirstname text, stdlastname text, stdNum text," +
-                    "costfp Integer default 50.00, costsf integer default 150.00, amountpaid integer default 0.00, amountdue integer default 0.00);";
+            "create table student (_id integer primary Key AUTOINCREMENT, stdfirstname text, stdlastname text, stdNum int," +
+                    "costfp Integer default 50.00, costsf integer default 150.00, amountpaid integer default 0.00, amountdue integer default 0.00," +
+                    "password integer default 1234);";
 
 
     public AdminDBHelper(Context context) {
@@ -33,16 +34,5 @@ public class AdminDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-    public boolean checkAdmin(String username, String password) {
-        database = this.getWritableDatabase();
-        Cursor mCursor = database.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE username=? AND password=?", new String[]{username,password});
-        if (mCursor != null) {
-            if(mCursor.getCount() > 0)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

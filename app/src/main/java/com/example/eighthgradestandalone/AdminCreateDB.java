@@ -29,7 +29,7 @@ public class AdminCreateDB extends AppCompatActivity {
     }
     private void initTextChangeEvents() {
 
-        final EditText etAdminFirstName = findViewById(R.id.editAdminFirstName);
+        final EditText etAdminFirstName = findViewById(R.id.editStdFirstName);
         etAdminFirstName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -46,7 +46,7 @@ public class AdminCreateDB extends AppCompatActivity {
                 currentAdmin.setAdminFirstName(etAdminFirstName.getText().toString());
             }
         });
-        final EditText etAdminLastName = findViewById(R.id.editAdminLastName);
+        final EditText etAdminLastName = findViewById(R.id.editStdLastName);
         etAdminLastName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -123,7 +123,7 @@ public class AdminCreateDB extends AppCompatActivity {
                 } catch (Exception e) {
                     dbCreateIssue = true;
                 }
-                Intent intent = new Intent(AdminCreateDB.this, AdminStudentList.class);
+                Intent intent = new Intent(AdminCreateDB.this, AdminInputData.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -132,9 +132,9 @@ public class AdminCreateDB extends AppCompatActivity {
     private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-        EditText editName = findViewById(R.id.editAdminFirstName);
+        EditText editName = findViewById(R.id.editStdFirstName);
         imm.hideSoftInputFromWindow(editName.getWindowToken(), 0);
-        EditText editAddress = findViewById(R.id.editAdminLastName);
+        EditText editAddress = findViewById(R.id.editStdLastName);
         imm.hideSoftInputFromWindow(editAddress.getWindowToken(), 0);
         EditText editCity = findViewById(R.id.editAdminUserName);
         imm.hideSoftInputFromWindow(editCity.getWindowToken(), 0);
