@@ -25,7 +25,6 @@ public class Student {
     public void setStdFirstName(String stdFirstName) {
         this.stdFirstName = stdFirstName;
     }
-
     public String getStdLastName() {
         return stdLastName;
     }
@@ -36,6 +35,10 @@ public class Student {
 
     public int getStdNum() {
         return stdNum;
+    }
+
+    public String getStdNumText() {
+        return String.valueOf(stdNum);
     }
 
     public void setStdNum(int stdNum) {
@@ -69,9 +72,17 @@ public class Student {
         return amountPaid;
     }
 
+    public String getAmountPaidText(){
+        return String.valueOf(amountPaid);
+    }
+
     public int getAmountDue() {
-        amountDue = costFP+costSF-amountPaid;
+        amountDue = getCostFP()+getCostSF()-getAmountPaid();
         return amountDue;
+    }
+
+    public String getAmountDueString() {
+        return String.valueOf(amountDue);
     }
 
     public void setAmountDue(int amountDue) {

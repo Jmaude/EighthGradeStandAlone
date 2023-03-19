@@ -39,6 +39,7 @@ public class StudentActivityDataSource {
                 newStudent.setStdFirstName(cursor.getString(1));
                 newStudent.setStdLastName(cursor.getString(2));
                 newStudent.setStdNum(Integer.parseInt(cursor.getString(3)));
+                newStudent.setCostFP(Integer.parseInt(cursor.getString(4)));
                 students.add(newStudent);
                 cursor.moveToNext();
             }

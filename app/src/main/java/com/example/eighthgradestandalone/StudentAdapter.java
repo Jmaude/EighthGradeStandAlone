@@ -27,8 +27,6 @@ public class StudentAdapter extends RecyclerView.Adapter {
         public TextView textStdFirstName;
         public TextView textStdLastName;
         public TextView textStdNum;
-        public TextView textCostFP;
-        public TextView textCostSF;
         public TextView textAmtPaid;
         public TextView textAmtDue;
 
@@ -37,11 +35,9 @@ public class StudentAdapter extends RecyclerView.Adapter {
             super(itemView);
             textStdFirstName = itemView.findViewById(R.id.listFirstName);
             textStdLastName = itemView.findViewById(R.id.listLastName);
-            textStdNum = itemView.findViewById(R.id.listSTDID);
-            textCostFP = itemView.findViewById(R.id.listCostFP);
-            textCostSF = itemView.findViewById(R.id.listCostSF);
-            textAmtPaid = itemView.findViewById(R.id.listAmtPaid);
-            textAmtDue = itemView.findViewById(R.id.listAmtDue);
+            textStdNum = itemView.findViewById(R.id.listStdNum);
+            textAmtPaid = itemView.findViewById(R.id.listAmountPaid);
+            textAmtDue = itemView.findViewById(R.id.listAmountDue);
 
             itemView.setTag(this);
             itemView.setOnClickListener(mOnItemClickListener);
@@ -49,12 +45,9 @@ public class StudentAdapter extends RecyclerView.Adapter {
 
         public TextView getTextStdFirstName() {return textStdFirstName;}
         public TextView getTextStdLastName() {return textStdLastName;}
-        public TextView getTextStdNum() {return textStdNum;}
-        public TextView getTextCostFP() {return textCostFP;}
-        public TextView getTextCostSF() {return textCostSF;}
+        public TextView getTextStdNum() { return textStdNum;}
+        public TextView getTextAmtPaid() {return textAmtPaid;}
         public TextView getTextAmtDue() {return textAmtDue;}
-        public TextView getTextAmtPaid() {return textAmtDue;}
-
     }
 
     public StudentAdapter(ArrayList<Student> arrayList, Context context) {
@@ -84,11 +77,9 @@ public class StudentAdapter extends RecyclerView.Adapter {
         }
         svh.getTextStdFirstName().setText(studentData.get(position).getStdFirstName());
         svh.getTextStdLastName().setText(studentData.get(position).getStdLastName());
-        svh.getTextStdNum().setText(studentData.get(position).getStdNum());
-        svh.getTextCostSF().setText(studentData.get(position).getCostSF());
-        svh.getTextCostFP().setText(studentData.get(position).getCostFP());
-        svh.getTextAmtDue().setText(studentData.get(position).getAmountDue());
-        svh.getTextAmtPaid().setText(studentData.get(position).getAmountPaid());
+        svh.getTextStdNum().setText(studentData.get(position).getStdNumText());
+        svh.getTextAmtPaid().setText(studentData.get(position).getAmountPaidText());
+        svh.getTextAmtDue().setText(studentData.get(position).getAmountDueString());
 
     }
 
