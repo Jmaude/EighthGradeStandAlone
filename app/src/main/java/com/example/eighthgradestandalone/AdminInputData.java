@@ -89,7 +89,7 @@ public class AdminInputData extends AppCompatActivity {
 
     private void initSaveButton() {
 
-        Button buttonSave = findViewById(R.id.buttonSave);
+        Button buttonSave = findViewById(R.id.bttnPayment);
         TextView textAmtDue = findViewById(R.id.textValueAmtDue);
         textAmtDue.setText(currentStudent.setAmountPaid(Integer.parseInt(textAmtDue.toString())));
         buttonSave.setOnClickListener(new View.OnClickListener() {

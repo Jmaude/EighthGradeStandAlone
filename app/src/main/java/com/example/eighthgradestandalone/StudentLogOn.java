@@ -12,19 +12,23 @@ import android.widget.Toast;
 public class StudentLogOn extends AppCompatActivity {
 
     EditText studentNum;
-    StudentActivityDBHelper DB;
+    EditText studentPass;
+   // StudentActivityDBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_log_on);
 
         studentNum = (EditText) findViewById(R.id.textStudentId);
-        Button logOn = findViewById(R.id.buttonStLogOn);
-        DB = new StudentActivityDBHelper(this);
+        studentPass = (EditText) findViewById(R.id.textNumberPW2);
 
-        logOn.setOnClickListener(new View.OnClickListener() {
+        Button logOn = findViewById(R.id.buttonStLogOn);
+        Button main = findViewById(R.id.buttonStLogOn2);
+        //DB = new StudentActivityDBHelper(this);
+
+       logOn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String stNum = studentNum.getText().toString();
+              /*   String stNum = studentNum.getText().toString();
 
                 boolean checkNum = DB.checkStNum(stNum);
                 if (checkNum == true) {
@@ -32,8 +36,20 @@ public class StudentLogOn extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Toast.makeText(StudentLogOn.this, "Invalid Student Number", Toast.LENGTH_SHORT).show();
-                }
+                }*/
+                Intent intent = new Intent(StudentLogOn.this, StudentInformation.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
+
+       main.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(StudentLogOn.this, MainActivity.class);
+               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+               startActivity(intent);
+           }
+       });
     }
 }
