@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class AdminInputData extends AppCompatActivity {
@@ -27,7 +29,35 @@ public class AdminInputData extends AppCompatActivity {
         initListView();
         initGoMain();
 
+        int stN = getIntent().getIntExtra("studentID",0);
+        Bundle b = getIntent().getExtras();
+        if (b!=null){
+            initStudent(stN);
+        }
 
+    }
+
+    public void initStudent(int id) {
+        StudentActivityDataSource ds = new StudentActivityDataSource(AdminInputData.this);
+        try {
+            ds.open();
+            currentStudent = ds.getSpecificStudent(id);
+            ds.close();
+        } catch (Exception e) {
+            Toast.makeText(this, "Load Student Failed", Toast.LENGTH_LONG).show();
+        }
+
+        EditText stNum = findViewById(R.id.editStdNum);
+        EditText stFName = findViewById(R.id.editStdFirstName);
+        EditText stLName = findViewById(R.id.editStdLastName);
+        EditText amPaid = findViewById(R.id.editAmountPaidInput);
+        TextView amDue = findViewById(R.id.textView9);
+
+        stNum.setText(Integer.toString(currentStudent.getStdNum()));
+        stFName.setText(currentStudent.getStdFirstName());
+        stLName.setText(currentStudent.getStdLastName());
+        amPaid.setText(Integer.toString(currentStudent.getAmountPaid()));
+        amDue.setText(Integer.toString(currentStudent.getAmountDue()));
     }
     private void initTextChangeEvents() {
 
