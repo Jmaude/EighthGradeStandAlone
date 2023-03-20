@@ -25,6 +25,7 @@ public class AdminInputData extends AppCompatActivity {
         initToggleButton();
         setForEditing(true);
         initListView();
+        initGoMain();
 
 
     }
@@ -168,6 +169,17 @@ public class AdminInputData extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initGoMain() {
+        Button main = findViewById(R.id.buttonStLogOn2);
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v){
+                Intent intent = new Intent(AdminInputData.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);}
+        });
     }
 
 
