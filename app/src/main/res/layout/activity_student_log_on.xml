@@ -31,18 +31,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/schoollogo" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/buttonStLogOn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
         android:layout_marginStart="161dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="33dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_outline"
+
         android:text="Main"
-        android:textColor="#FEFEFE"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,16 +103,13 @@
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/buttonStLogOn"
         android:layout_width="172dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="120dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_outline"
         android:text="@string/logOn"
-        android:textColor="#F8D0D1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stdLoginLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
