@@ -75,7 +75,7 @@
                     android:id="@+id/showFP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:hint="--"
                     android:textAllCaps="false"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="24sp" />
@@ -111,7 +111,7 @@
                     android:id="@+id/showSF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:hint="--"
                     android:textAllCaps="false"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="24sp" />
@@ -147,7 +147,7 @@
                     android:id="@+id/showAP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:hint="--"
                     android:textAllCaps="false"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="24sp" />
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_background_yellow"
-                    android:text="TextView"
+                    android:hint="--"
                     android:textAllCaps="false"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="24sp" />

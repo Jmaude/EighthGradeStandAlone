@@ -9,13 +9,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class StudentActivityDataSource {
     private SQLiteDatabase database;
-    private StudentActivityDBHelper dbHelper;
+    private AdminDBHelper dbHelper;
 
     public StudentActivityDataSource(Context context){
-        dbHelper = new StudentActivityDBHelper(context);
+        dbHelper = new AdminDBHelper(context);
     }
 
     public void open() throws SQLException {
@@ -59,6 +60,12 @@ public class StudentActivityDataSource {
             initialValues.put("stdfirstname", s.getStdFirstName());
             initialValues.put("stdlastname", s.getStdLastName());
             initialValues.put("stdNum", s.getStdNum());
+            initialValues.put("costfp", s.getCostFP());
+            initialValues.put("costsf", s.getCostSF());
+            initialValues.put("amountpaid", s.getAmountPaid());
+            initialValues.put("amountdue", s.getAmountDue());
+            initialValues.put("password", s.getStdpassword());
+
             didSucceed = database.insert("student", null, initialValues) > 0;
         } catch (Exception e) {
 
@@ -74,9 +81,14 @@ public class StudentActivityDataSource {
             ContentValues updateValues = new ContentValues();
             updateValues.put("stdfirstname", s.getStdFirstName());
             updateValues.put("stdlastname", s.getStdLastName());
-            updateValues.put("stdidnum", s.getStdNum());
+            updateValues.put("stdNum", s.getStdNum());
+            updateValues.put("costfp", s.getCostFP());
+            updateValues.put("costsf", s.getCostSF());
+            updateValues.put("amountpaid", s.getAmountPaid());
+            updateValues.put("amountdue", s.getAmountDue());
+            updateValues.put("password", s.getStdpassword());
 
-            didSucceed = database.update("student", updateValues, "stdidnum=" + rowID, null) > 0;
+            didSucceed = database.update("student", updateValues, "stdNum=" + rowID, null) > 0;
         } catch (Exception e) {
 
         }
@@ -98,14 +110,40 @@ public class StudentActivityDataSource {
     }
 
     public Student getSpecificStudent(int studentId){
-        Student student = null;
-        String query = "SELECT * FROM student WHERE _id=" + studentId;
+        Student student = new Student();
+        String query = "SELECT * FROM student WHERE stdNum=" + studentId;
         Cursor cursor = database.rawQuery(query, null);
-                if (cursor.moveToFirst()){
-                    student = new Student();
-                }
-                cursor.close();
-                return student;
+
+        if (cursor.moveToFirst()){
+            student.setStdSystemID(cursor.getInt(0));
+            student.setStdFirstName(cursor.getString(1));
+            student.setStdLastName(cursor.getString(2));
+            student.setStdNum(cursor.getInt(3));
+            student.setCostFP(cursor.getInt(4));
+            student.setCostSF(cursor.getInt(5));
+            student.setAmountPaid(cursor.getInt(6));
+            student.setAmountDue(cursor.getInt(7));
+            student.setStdpassword(cursor.getString(8));
+
+            cursor.close();
+        }
+        return student;
+    }
+
+    public int checkStudent(int username) {
+        int password;
+
+        try {
+
+            String query = "SELECT * FROM student WHERE stdNum = " + username;
+            Cursor mCursor = database.rawQuery(query,null);
+            mCursor.moveToFirst();
+            password = mCursor.getInt(8);
+
+        } catch (Exception e) {
+            password = -1;
+        }
+        return password;
     }
 
 

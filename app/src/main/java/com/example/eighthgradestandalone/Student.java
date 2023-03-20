@@ -4,6 +4,7 @@ public class Student {
     private int stdSystemID;
     private String stdFirstName;
     private String stdLastName;
+    private String stdpassword;
     private int stdNum;
     private int costFP;
     private int costSF;
@@ -71,6 +72,14 @@ public class Student {
 
     public int getAmountDue() {
         return amountDue;
+    }
+
+    public String getStdpassword() {
+        return stdpassword;
+    }
+
+    public void setStdpassword(String stdpassword) {
+        this.stdpassword = stdpassword;
     }
 
     public void setAmountDue(int amountDue) {
