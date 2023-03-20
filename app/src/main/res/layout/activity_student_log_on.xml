@@ -11,51 +11,46 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="38dp"
         android:background="@drawable/text_background"
         android:text="@string/LogOnStudent"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/stdLoginLayout"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/schoollogo" />
 
     <Button
         android:id="@+id/buttonStLogOn2"
-        android:layout_width="172dp"
+        android:layout_width="180dp"
         android:layout_height="48dp"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="33dp"
 
         android:text="Main"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonStLogOn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.887" />
 
     <LinearLayout
         android:id="@+id/stdLoginLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="25dp"
-        android:background="@color/material_on_background_disabled"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="104dp"
         android:orientation="vertical"
         app:layout_constraintCircleRadius="@dimen/cardview_default_radius"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,15 +67,16 @@
 
         <EditText
             android:id="@+id/textStudentId"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/studentID"
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:hint="@string/studentIDtext"
+            android:inputType="numberPassword"
+            android:textColor="@color/sunflower" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -91,25 +87,26 @@
 
         <EditText
             android:id="@+id/textNumberPW2"
-            android:layout_width="352dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="numberPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColor="@color/sunflower"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonStLogOn"
-        android:layout_width="172dp"
+        android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="159dp"
         android:text="@string/logOn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stdLoginLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
