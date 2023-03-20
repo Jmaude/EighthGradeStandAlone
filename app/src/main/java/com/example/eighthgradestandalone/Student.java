@@ -46,7 +46,6 @@ public class Student {
     }
 
     public int getCostFP() {
-        costFP = 50;
         return costFP;
     }
 
@@ -55,7 +54,6 @@ public class Student {
     }
 
     public int getCostSF() {
-        costSF = 150;
         return costSF;
     }
 
@@ -67,25 +65,26 @@ public class Student {
         return amountPaid;
     }
 
-    public int setAmountPaid(int amountPaid) {
-       amountPaid = 0;
-        return amountPaid;
+    public void setAmountPaid(int amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public int getAmountDue() {
+        return amountDue;
+    }
+
+    public void setAmountDue(int amountDue) {
+        this.amountDue = amountDue;
     }
 
     public String getAmountPaidText(){
         return String.valueOf(amountPaid);
     }
 
-    public int getAmountDue() {
-        amountDue = getCostFP()+getCostSF()-getAmountPaid();
-        return amountDue;
-    }
+
 
     public String getAmountDueString() {
         return String.valueOf(amountDue);
     }
 
-    public void setAmountDue(int amountDue) {
-        this.amountDue = amountDue;
-    }
 }

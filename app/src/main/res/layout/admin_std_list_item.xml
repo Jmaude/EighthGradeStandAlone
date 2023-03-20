@@ -5,7 +5,8 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="25dp">
+    android:layout_marginBottom="25dp"
+    android:background="@drawable/gradient_background_yellow">
 
     <TextView
         android:id="@+id/listFirstName"
@@ -13,9 +14,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="20dp"
+        android:capitalize="none"
         android:text="FirstName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_md"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelAmountPaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/amountPaid"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_md"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,19 +37,37 @@
         android:id="@+id/listAmountPaid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="35dp"
-        android:text="FirstName"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/amountPaid"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/text_size_md"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelAmountDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="116dp"
+        android:text="@string/AmtDue"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_md"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/listAmountDue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="94dp"
-        android:text="FirstName"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/AmtDue"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="@dimen/text_size_md"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,6 +78,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="LastName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_md"
         app:layout_constraintStart_toEndOf="@+id/listFirstName"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +90,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="9dp"
         android:text="@string/studentIDtext"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_md"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

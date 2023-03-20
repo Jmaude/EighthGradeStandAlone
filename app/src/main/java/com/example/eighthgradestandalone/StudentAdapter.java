@@ -6,14 +6,10 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -70,11 +66,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         StudentViewHolder svh = (StudentViewHolder) holder;
-        if (position % 2 == 0){
-            ((StudentViewHolder) holder).textStdFirstName.setTextColor(Color.BLUE);
-        } else {
-            ((StudentViewHolder) holder).textStdFirstName.setTextColor(Color.RED);
-        }
+
         svh.getTextStdFirstName().setText(studentData.get(position).getStdFirstName());
         svh.getTextStdLastName().setText(studentData.get(position).getStdLastName());
         svh.getTextStdNum().setText(studentData.get(position).getStdNumText());

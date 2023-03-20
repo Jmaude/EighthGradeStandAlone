@@ -23,7 +23,7 @@ public class AdminInputData extends AppCompatActivity {
         initTextChangeEvents();
         initSaveButton();
         initToggleButton();
-        setForEditing(false);
+        setForEditing(true);
         initListView();
 
 
@@ -80,6 +80,25 @@ public class AdminInputData extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 currentStudent.setStdNum(Integer.parseInt(etStudentID.getText().toString()));
+            }
+        });
+
+        final EditText etAmountPaid = findViewById(R.id.editAmountPaidInput);
+        etAmountPaid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                currentStudent.setAmountPaid(Integer.parseInt(etAmountPaid.getText().toString()));
+
             }
         });
 
