@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AdminCreateDB extends AppCompatActivity {
 
@@ -106,22 +107,27 @@ public class AdminCreateDB extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean wasSuccessful = true;
-                boolean dbCreateIssue = false;
                 AdminDataSource adb = new AdminDataSource(AdminCreateDB.this);
                 try {
+                    int recordCount;
                     adb.open();
-                    if (currentAdmin.getAdminID() == -1) {
-                        wasSuccessful = adb.insertAdmin(currentAdmin);
-                        if (wasSuccessful) {
-                            int newID = adb.getLastAdminID();
-                        } else {
-                            wasSuccessful = false;
-                        }
+                    recordCount = adb.checkDatabaseCreated();
+                    if (recordCount > 0) {
+                        Toast.makeText(AdminCreateDB.this, "Database Already Registered", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(AdminCreateDB.this, AdminLogOn.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                    if (recordCount == 0){
+                         currentAdmin.getAdminID();
+                         adb.insertAdmin(currentAdmin);
+                    } else {
+                        Toast.makeText(AdminCreateDB.this, "Database Already Registered", Toast.LENGTH_SHORT).show();
                     }
                     adb.close();
 
                 } catch (Exception e) {
-                    dbCreateIssue = true;
+                    Toast.makeText(AdminCreateDB.this, "Database Was Not Created", Toast.LENGTH_SHORT).show();;
                 }
                 Intent intent = new Intent(AdminCreateDB.this, AdminInputData.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -95,4 +95,20 @@ public class AdminDataSource {
         return password;
     }
 
+    public int checkDatabaseCreated(){
+        int recordCount;
+        try {
+            String query = "Select COUNT(_id) from admin";
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            recordCount = cursor.getInt(0);
+            cursor.close();
+        } catch (Exception e) {
+            recordCount = -1;
+        }
+        return recordCount;
+    }
+
+
+
 }
