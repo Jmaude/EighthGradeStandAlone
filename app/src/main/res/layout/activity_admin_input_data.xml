@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/amountPaid"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:textSize="@dimen/text_size_md" />
         </TableRow>
 
@@ -125,6 +125,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:paddingTop="@dimen/fab_margin"
                 android:text="TextView"
                 android:textColor="@color/design_default_color_error"

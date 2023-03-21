@@ -11,6 +11,10 @@ public class Student {
     private int amountPaid = 0;
     private int amountDue = 200;
 
+    public Student() {
+        stdSystemID = -1;
+    }
+
     public int getStdSystemID() {
         return stdSystemID;
     }
@@ -35,6 +39,7 @@ public class Student {
     }
 
     public int getStdNum() {
+
         return stdNum;
     }
 

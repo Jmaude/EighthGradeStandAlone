@@ -41,6 +41,9 @@ public class StudentActivityDataSource {
                 newStudent.setStdLastName(cursor.getString(2));
                 newStudent.setStdNum(Integer.parseInt(cursor.getString(3)));
                 newStudent.setCostFP(Integer.parseInt(cursor.getString(4)));
+                newStudent.setCostSF(Integer.parseInt(cursor.getString(5)));
+                newStudent.setAmountPaid(Integer.parseInt(cursor.getString(6)));
+                newStudent.setAmountDue(Integer.parseInt(cursor.getString(7)));
                 students.add(newStudent);
                 cursor.moveToNext();
             }
@@ -88,7 +91,7 @@ public class StudentActivityDataSource {
             updateValues.put("amountdue", s.getAmountDue());
             updateValues.put("password", s.getStdpassword());
 
-            didSucceed = database.update("student", updateValues, "stdNum=" + rowID, null) > 0;
+            didSucceed = database.update("student", updateValues, "_id=" + rowID, null) > 0;
         } catch (Exception e) {
 
         }

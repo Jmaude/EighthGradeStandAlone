@@ -144,11 +144,12 @@ public class AdminInputData extends AppCompatActivity {
                 StudentActivityDataSource sdb = new StudentActivityDataSource(AdminInputData.this);
                 try {
                     sdb.open();
-                    if(currentStudent.getStdNum() == -1);
-                    wasSuccessful = sdb.insertStudent(currentStudent);
-                    if (wasSuccessful) {
-                        int newID = sdb.getLastStudentSystemID();
-                        currentStudent.setStdNum(newID);
+                    if(currentStudent.getStdSystemID() == -1) {
+                        wasSuccessful = sdb.insertStudent(currentStudent);
+                        if (wasSuccessful) {
+                            int newID = sdb.getLastStudentSystemID();
+                            currentStudent.setStdNum(newID);
+                        }
                     } else {
                         wasSuccessful = sdb.updateStudent(currentStudent);
                     }
