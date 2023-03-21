@@ -6,10 +6,10 @@ public class Student {
     private String stdLastName;
     private String stdpassword;
     private int stdNum;
-    private int costFP;
-    private int costSF;
-    private int amountPaid;
-    private int amountDue;
+    private int costFP = 50;
+    private int costSF = 150;
+    private int amountPaid = 0;
+    private int amountDue = 200;
 
     public int getStdSystemID() {
         return stdSystemID;
