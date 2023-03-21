@@ -6,13 +6,19 @@ public class Student {
     private String stdLastName;
     private String stdpassword;
     private int stdNum;
-    private int costFP = 50;
-    private int costSF = 150;
-    private int amountPaid = 0;
-    private int amountDue = 200;
+    private int costFP;
+    private int costSF;
+    private int amountPaid;
+    private int amountDue;
 
     public Student() {
         stdSystemID = -1;
+        stdpassword = "1234";
+        costFP = 50;
+        costSF = 150;
+        amountPaid = 0;
+        amountDue = costFP + costSF;
+
     }
 
     public int getStdSystemID() {

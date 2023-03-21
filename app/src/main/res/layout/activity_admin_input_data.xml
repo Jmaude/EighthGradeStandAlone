@@ -95,7 +95,7 @@
                 android:id="@+id/labelAmtPay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amountPaid"
+                android:text="Make a Payment"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_md" />
 

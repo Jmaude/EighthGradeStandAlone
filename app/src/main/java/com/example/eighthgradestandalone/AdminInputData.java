@@ -184,9 +184,12 @@ public class AdminInputData extends AppCompatActivity {
         EditText editFirstName = findViewById(R.id.editStdFirstName);
         EditText editLastName  = findViewById(R.id.editStdLastName);
         EditText editStdNum = findViewById(R.id.editStdNum);
+        EditText editPayment = findViewById(R.id.editAmountPaidInput);
         editFirstName.setEnabled(enabled);
         editLastName.setEnabled(enabled);
         editStdNum.setEnabled(enabled);
+        editPayment.setEnabled(enabled);
+
     }
 
     private void initListView(){

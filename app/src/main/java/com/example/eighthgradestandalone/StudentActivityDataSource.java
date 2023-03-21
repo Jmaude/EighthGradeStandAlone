@@ -88,7 +88,7 @@ public class StudentActivityDataSource {
             updateValues.put("costfp", s.getCostFP());
             updateValues.put("costsf", s.getCostSF());
             updateValues.put("amountpaid", s.getAmountPaid());
-            updateValues.put("amountdue", s.getAmountDue());
+            updateValues.put("amountdue", (s.getAmountDue()-s.getAmountPaid()));
             updateValues.put("password", s.getStdpassword());
 
             didSucceed = database.update("student", updateValues, "_id=" + rowID, null) > 0;
