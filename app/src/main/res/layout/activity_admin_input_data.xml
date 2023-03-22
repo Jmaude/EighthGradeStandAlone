@@ -8,6 +8,20 @@
     android:background="@drawable/gradient_background"
     tools:context=".AdminInputData">
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="125dp"
+        android:text="Student Information"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_md"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TableLayout
         android:id="@+id/tableLayout2"
         android:layout_width="wrap_content"
@@ -51,7 +65,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stdNameFirst"
+                android:text="@string/firstName"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_md" />
 
@@ -73,7 +87,7 @@
                 android:id="@+id/editText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lastName2"
+                android:text="@string/lastName"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_md" />
 
@@ -117,7 +131,7 @@
                 android:id="@+id/labelAmtPay2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/AmtDue"
+                android:text="Amount Due"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_md" />
 
