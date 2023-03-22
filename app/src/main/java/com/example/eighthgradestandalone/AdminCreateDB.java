@@ -113,25 +113,23 @@ public class AdminCreateDB extends AppCompatActivity {
                     adb.open();
                     recordCount = adb.checkDatabaseCreated();
                     if (recordCount > 0) {
-                        Toast.makeText(AdminCreateDB.this, "Database Already Registered", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminCreateDB.this, "Database Already Registered, to delete update drop the table after admin logon ", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AdminCreateDB.this, AdminLogOn.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-                    }
-                    if (recordCount == 0){
-                         currentAdmin.getAdminID();
-                         adb.insertAdmin(currentAdmin);
                     } else {
-                        Toast.makeText(AdminCreateDB.this, "Database Already Registered", Toast.LENGTH_SHORT).show();
+                        currentAdmin.getAdminID();
+                        adb.insertAdmin(currentAdmin);
+                        Intent intent = new Intent(AdminCreateDB.this, AdminInputData.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                     }
                     adb.close();
 
                 } catch (Exception e) {
                     Toast.makeText(AdminCreateDB.this, "Database Was Not Created", Toast.LENGTH_SHORT).show();;
                 }
-                Intent intent = new Intent(AdminCreateDB.this, AdminInputData.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+
             }
         });
     }

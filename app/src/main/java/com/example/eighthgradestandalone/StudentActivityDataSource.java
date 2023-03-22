@@ -149,5 +149,19 @@ public class StudentActivityDataSource {
         return password;
     }
 
+    public int countStudentRecord() {
+        int recordCount;
+        try {
+            String query = "Select COUNT(_id) from student";
+            Cursor cursor = database.rawQuery(query,null);
+            cursor.moveToFirst();
+            recordCount = cursor.getInt(0);
+            cursor.close();
+        } catch (Exception e) {
+            recordCount = -1;
+        }
+        return recordCount;
+    }
+
 
 }
