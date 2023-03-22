@@ -27,10 +27,10 @@ public class StudentActivityDataSource {
         dbHelper.close();
     }
 
-    public ArrayList<Student> getStudents() {
+    public ArrayList<Student> getStudents(String sortField, String sortOrder) {
         ArrayList<Student> students = new ArrayList<Student>();
         try {
-            String query = "SELECT * FROM student";
+            String query = "SELECT * FROM student ORDER BY " + sortField + " " + sortOrder;
             Cursor cursor = database.rawQuery(query,null);
 
             Student newStudent;
@@ -161,6 +161,18 @@ public class StudentActivityDataSource {
             recordCount = -1;
         }
         return recordCount;
+    }
+
+    public boolean deleteContact (int studentId) {
+        boolean didDelete = false;
+        try {
+            didDelete = database.delete("student", "_id=" + studentId,
+                    null) > 0;
+        } catch (Exception e) {
+            // Do nothing -return value already set to false
+        }
+
+        return didDelete;
     }
 
 

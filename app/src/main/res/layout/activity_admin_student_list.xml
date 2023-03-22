@@ -14,7 +14,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
-        android:background="@drawable/gradient_background_yellow"
+        android:background="@drawable/gradient_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +27,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/sunflower"
             android:src="@drawable/plus" />
 
         <Switch
@@ -43,6 +44,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
+
+        <ImageButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="86dp"
+            android:layout_height="73dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/sunflower"
+            android:src="@drawable/ic_settings" />
 
     </LinearLayout>
 

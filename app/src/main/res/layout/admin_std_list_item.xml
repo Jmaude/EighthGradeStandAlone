@@ -95,4 +95,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/buttonDeleteContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/system_transparent"
+        android:text="DELETE"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/listStdNum"
+        app:layout_constraintStart_toEndOf="@+id/listLastName"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

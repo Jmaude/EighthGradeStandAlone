@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +19,9 @@ public class StudentAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Student> studentData;
     private View.OnClickListener mOnItemClickListener;
+    private boolean isDeleting;
     private Context parentContext;
+
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
         public TextView textStdFirstName;
@@ -25,6 +29,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
         public TextView textStdNum;
         public TextView textAmtPaid;
         public TextView textAmtDue;
+        public Button deleteButton;
 
 
         public StudentViewHolder(@NonNull View itemView) {
@@ -34,6 +39,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
             textStdNum = itemView.findViewById(R.id.listStdNum);
             textAmtPaid = itemView.findViewById(R.id.listAmountPaid);
             textAmtDue = itemView.findViewById(R.id.listAmountDue);
+            deleteButton = itemView.findViewById(R.id.buttonDeleteContact);
 
             itemView.setTag(this);
             itemView.setOnClickListener(mOnItemClickListener);
@@ -44,6 +50,9 @@ public class StudentAdapter extends RecyclerView.Adapter {
         public TextView getTextStdNum() { return textStdNum;}
         public TextView getTextAmtPaid() {return textAmtPaid;}
         public TextView getTextAmtDue() {return textAmtDue;}
+        public Button getDeleteButton() {
+            return deleteButton;
+        }
     }
 
     public StudentAdapter(ArrayList<Student> arrayList, Context context) {
@@ -73,11 +82,51 @@ public class StudentAdapter extends RecyclerView.Adapter {
         svh.getTextAmtPaid().setText(studentData.get(position).getAmountPaidText());
         svh.getTextAmtDue().setText(studentData.get(position).getAmountDueString());
 
+        if (isDeleting) {
+            svh.getDeleteButton().setVisibility(View.VISIBLE);
+            svh.getDeleteButton().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    deleteItem(position); // replace with holder.getHolderPosition
+                }
+            });
+        }
+        else {
+            svh.getDeleteButton().setVisibility(View.INVISIBLE);
+        }
+
     }
+
 
     @Override
     public int getItemCount() {
         return studentData.size();
+    }
+
+    public void setDelete(boolean b){
+        isDeleting = b;
+    }
+
+    private void deleteItem(int position){
+        Student student = studentData.get(position);
+        StudentActivityDataSource ds = new StudentActivityDataSource(parentContext);
+        try {
+            ds.open();
+            boolean didDelete = ds.deleteContact(student.getStdSystemID());
+            ds.close();
+
+            if (didDelete) {
+                studentData.remove(position);
+                notifyDataSetChanged(); // refresh display
+                Toast.makeText(parentContext, "Delete Success!", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(parentContext, "Delete Failed!", Toast.LENGTH_LONG).show();
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(parentContext, "Delete Failed!", Toast.LENGTH_LONG).show();
+        }
     }
 
 

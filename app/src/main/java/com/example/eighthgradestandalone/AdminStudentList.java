@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,8 @@ public class AdminStudentList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_student_list);
         initAddStudent();
+        initSettingsButton();
+        initDeleteSwitch();
 
 
     }
@@ -47,11 +50,16 @@ public class AdminStudentList extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        String sortBy = getSharedPreferences("MyContactListPreferences",
+                Context.MODE_PRIVATE).getString("sortfield", "stdlastname");
+        String sortOrder = getSharedPreferences("MyContactListPreferences",
+                Context.MODE_PRIVATE).getString("sortorder", "ASC");
+
         StudentActivityDataSource sdb = new StudentActivityDataSource(this);
 
         try{
             sdb.open();
-            student = sdb.getStudents();
+            student = sdb.getStudents(sortBy, sortOrder);
             sdb.close();
             if (student.size() > 0) {
                 studentList = findViewById(R.id.rvAdminStdList);
@@ -78,6 +86,30 @@ public class AdminStudentList extends AppCompatActivity {
                 Intent intent = new Intent(AdminStudentList.this, AdminInputData.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void initSettingsButton() {
+        ImageButton ibList = findViewById(R.id.buttonSettings);
+        ibList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)  {
+                Intent intent = new Intent(AdminStudentList.this, StudentActivitySettings.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initDeleteSwitch() {
+        Switch s = findViewById(R.id.deleteSwitch);
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Boolean status = compoundButton.isChecked();
+                studentAdapter.setDelete(status);
+                studentAdapter.notifyDataSetChanged();
+                // redraws the list
             }
         });
     }
