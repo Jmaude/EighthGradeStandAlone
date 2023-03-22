@@ -112,7 +112,7 @@ public class StudentAdapter extends RecyclerView.Adapter {
         StudentActivityDataSource ds = new StudentActivityDataSource(parentContext);
         try {
             ds.open();
-            boolean didDelete = ds.deleteContact(student.getStdSystemID());
+            boolean didDelete = ds.deleteContact(student.getStdNum());
             ds.close();
 
             if (didDelete) {

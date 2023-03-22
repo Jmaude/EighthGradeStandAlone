@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">EighthGradeStandAlone</string>
-    <string name="LogOnInstruction">Please enter your admin log and password. If this is your first log on create your admin and admin password.</string>
+    <string name="LogOnInstruction">Please enter your admin log and password. If this is your first log on select the Register Button.</string>
     <string name="adminId">Admin ID</string>
     <string name="student">Student</string>
     <string name="instructor">Instructor</string>
@@ -43,5 +43,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="adminFirst">Admin\'s First Name</string>
     <string name="adminLastName">Admin\'s Last Name</string>
-    <string name="drop">To drop the database and loose all data please enter Admin ID and Password</string>
+    <string name="drop">To drop the database and loose all data please enter Admin ID, Password and select Delete Database</string>
 </resources>

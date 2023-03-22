@@ -166,8 +166,7 @@ public class StudentActivityDataSource {
     public boolean deleteContact (int studentId) {
         boolean didDelete = false;
         try {
-            didDelete = database.delete("student", "_id=" + studentId,
-                    null) > 0;
+            didDelete = database.delete("student", "stdNum", null) > 0;
         } catch (Exception e) {
             // Do nothing -return value already set to false
         }
