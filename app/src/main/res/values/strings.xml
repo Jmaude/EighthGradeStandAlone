@@ -43,4 +43,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="adminFirst">Admin\'s First Name</string>
     <string name="adminLastName">Admin\'s Last Name</string>
+    <string name="drop">To drop the database and loose all data please enter Admin ID and Password</string>
 </resources>
