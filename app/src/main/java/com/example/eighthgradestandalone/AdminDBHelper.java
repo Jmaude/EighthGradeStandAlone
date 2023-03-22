@@ -5,12 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class AdminDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "admin.db";
     private static final int DATABASE_VERSION = 1;
-    private SQLiteDatabase database;
-    private static final String DATABASE_TABLE = "admin";
 
 
     private static final String CREATE_TABLE_ADMIN =
@@ -25,6 +24,8 @@ public class AdminDBHelper extends SQLiteOpenHelper {
     public AdminDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_ADMIN);
@@ -33,6 +34,9 @@ public class AdminDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.w(AdminDBHelper.class.getName(),
+                "Upgrading database from version" + oldVersion + " to " + newVersion + ", which will destroy all old data");
+                onCreate(db);
 
     }
 }

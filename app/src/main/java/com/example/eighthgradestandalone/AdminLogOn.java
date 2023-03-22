@@ -59,7 +59,7 @@ public class AdminLogOn extends AppCompatActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
-                    if (recordCount < 0) {
+                    if (recordCount == 0) {
                         Intent intent = new Intent(AdminLogOn.this, AdminInputData.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);

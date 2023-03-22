@@ -11,14 +11,11 @@
         android:id="@+id/buttonLogOn2"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="536dp"
-        android:layout_marginEnd="159dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/logOn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stdLoginLayout" />
+        app:layout_constraintBottom_toTopOf="@+id/deleteButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/stdLoginLayout"
@@ -37,22 +34,23 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/registerButton2"
+        android:id="@+id/deleteButton"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Register"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="599dp" />
+        android:layout_marginStart="126dp"
+        android:layout_marginBottom="19dp"
+        android:text="Delete Database"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMain2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonMain2"
-        android:layout_width="180dp"
-        android:layout_height="48dp"
+        android:layout_width="159dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="16dp"
         android:text="Main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton"
         app:layout_constraintVertical_bias="0.661" />
@@ -75,23 +73,25 @@
         android:id="@+id/editAdminID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
         android:ems="10"
         android:hint="@string/adminId"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/sunflower"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="402dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:layout_marginBottom="17dp"
         android:text="@string/password"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/editAdminID"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editNumberPW"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -108,13 +108,14 @@
         android:id="@+id/editNumberPW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="numberPassword"
         android:textColor="@color/sunflower"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="472dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

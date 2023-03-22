@@ -24,6 +24,7 @@ public class AdminCreateDB extends AppCompatActivity {
         currentAdmin = new Admin();
         initTextChangeEvents();
         iniSaveButton();
+        initClearDatabase();
         hideKeyboard();
 
 
@@ -133,6 +134,20 @@ public class AdminCreateDB extends AppCompatActivity {
             }
         });
     }
+
+    public void initClearDatabase() {
+        Button btnDeleteTables = findViewById(R.id.bttnDeleteTable);
+        btnDeleteTables.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCreateDB.this, AdminDropDatabase.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
+
     private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);

@@ -110,5 +110,27 @@ public class AdminDataSource {
     }
 
 
+    public boolean deleteStudentTable() {
+        boolean didDeleteStudent = false;
+        try {
+            didDeleteStudent = database.delete("student",null,null)>0;
+        } catch (Exception e) {
+        }
+        return didDeleteStudent;
+    }
+    public boolean deleteAdminTable() {
+        boolean didDeleteAdmin = false;
+        try {
+            didDeleteAdmin = database.delete("admin",null,null)>0;
+        } catch (Exception e) {
+        }
+        return didDeleteAdmin;
+    }
 
-}
+
+
+ }
+
+
+
+
